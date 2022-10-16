@@ -1,13 +1,13 @@
 services:
   speedtest:
       container_name: speedtest-tracker
-      image: henrywhitaker3/speedtest-tracker
+      image: henrywhitaker3/speedtest-tracker:dev-arm
       ports:
-          - 9001:80
+        - 9001:80
       volumes:
-          - data:/config
+        - data:/config
       environment:
-          - OOKLA_EULA_GDPR=true
+        - OOKLA_EULA_GDPR=true
       logging:
           driver: "json-file"
           options:
