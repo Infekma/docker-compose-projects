@@ -1,0 +1,20 @@
+
+services:
+  kasm:
+    image: lscr.io/linuxserver/kasm:latest
+    container_name: kasm
+    privileged: true
+    environment:
+      - KASM_PORT=443
+      - TZ=Europe/London
+    volumes:
+      - kasm-data:/opt
+      - kasm-profiles:/profiles #optional
+    ports:
+      - 9003:3000
+      - 9002:443
+    restart: unless-stopped
+
+volumes:
+  kasm-data:
+  kasm-profiles:
