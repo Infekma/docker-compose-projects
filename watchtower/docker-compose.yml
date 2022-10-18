@@ -4,13 +4,14 @@ services:
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+     - WATCHTOWER_CLEANUP=true
 
-  watchtower_once:
+  watchtower-once:
     image: containrrr/watchtower:latest
     container_name: watchtower-once
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - WATCHTOWER_RUN_ONCE: true
-      - WATCHTOWER_CLEANUP: true
-      - WATCHTOWER_DEBUG: true
+      - WATCHTOWER_RUN_ONCE=true
+      - WATCHTOWER_CLEANUP=true
